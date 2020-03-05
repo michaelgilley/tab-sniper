@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Tab Sniper",
+  "description": "Closes out Chrome tabs automatically.",
+  "version": "0.3.1",
+  "icons": {
+    "128": "logo.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.zoom.us/*", "https://*.slack.com/archives/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["tabs"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
